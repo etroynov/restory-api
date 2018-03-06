@@ -1,0 +1,8 @@
+{
+  "name": "ucavtor-dashboard",
+  "version": "",
+  "scripts": {
+    "start-dev-dashboard": "../node_modules/parcel-bundler/bin/cli.js -p 2000 ./src/index.html --no-cache",
+    "build": "../node_modules/parcel-bundler/bin/cli.js build ./src/index.html --no-cache --public-url ./"
+  }
+}
