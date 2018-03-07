@@ -10,7 +10,7 @@ import styled from 'styled-components';
  */
 
 const Container = styled.section`
-  min-width: 1024px;
+  max-width: 1240px;
   width: 1024px;
 
   margin-left: auto;
