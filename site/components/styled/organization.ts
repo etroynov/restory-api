@@ -9,13 +9,7 @@ import styled from 'styled-components';
  */
 
 export const Card = styled.article`
-  display: inline-block;
-  min-width: 240px;
-  max-width: 320px;
-
   margin: 0 0 15px 0;
-
-  vertical-align: top;
   background: #fff;
   border: 1px solid #eee;
 `;
