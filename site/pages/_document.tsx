@@ -13,8 +13,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My page</title>
-          <link rel="stylesheet" href="/static/css/styles.css" />
+          <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto&amp;subset=cyrillic" rel="stylesheet" />
           {this.props.styleTags}
         </Head>
         <body>

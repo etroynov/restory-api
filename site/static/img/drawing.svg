@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg3829"
    version="1.1"
-   viewBox="0 0 135.46666 110.06667"
-   height="110.06667mm"
-   width="135.46666mm">
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
   <defs
      id="defs3823" />
   <metadata
@@ -25,7 +25,6 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(311.15,122.40238)"
      id="layer1">
     <g
        transform="matrix(0.26458333,0,0,0.26458333,-311.15,-135.10238)"

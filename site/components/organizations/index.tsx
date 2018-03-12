@@ -8,19 +8,24 @@ import * as React from 'react';
  * Components
  */
 
-import Item from './Item';
-import Container from '../common/Container';
+import Card from './Card';
+
+/*!
+ * Styled
+ */
+
+import { Grid, Container } from '../styled/common';
 
 /*!
  * Expos
  */
 
 const Organizations = ({ organizations }) => (
-  <section className="organizations">
-    <Container>
-      {organizations.map(organization => <Item key={organization._id} {...organization} />)}
-    </Container>
-  </section>
+  <Container>
+    <Grid>
+      {organizations.map(organization => <Card key={organization._id} {...organization} />)}
+    </Grid>
+  </Container>
 );
 
 export default Organizations;

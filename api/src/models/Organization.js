@@ -23,6 +23,7 @@ const OrganizationSchema = new Schema({
   title: String,
   description: String,
   name: String,
+  previewContent: String,
   content: String,
   image: String,
   address: String,
