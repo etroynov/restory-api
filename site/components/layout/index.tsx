@@ -8,8 +8,8 @@ import * as React from 'react';
  * Components
  */
 
-import Header from '../common/Header';
-import Footer from '../common/Footer';
+import Header from './Header';
+import Footer from './Footer';
 
 /*!
  * Styles

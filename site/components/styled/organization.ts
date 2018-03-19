@@ -8,6 +8,11 @@ import styled from 'styled-components';
  * Expo
  */
 
+export const StyledLink = styled.a`
+  color: #222;
+  text-decoration: none;
+`;
+
 export const Card = styled.article`
   margin: 0 0 15px 0;
   background: #fff;

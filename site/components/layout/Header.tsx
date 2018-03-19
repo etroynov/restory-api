@@ -28,9 +28,12 @@ export default ({ title, description, settings }) => (
         content={
           description
           ? description
-          : `Портал restory74.ru — содержит самую актуальную информацию о ресторанах и заведениях для любого повода.`
+          : 'Портал restory74.ru — содержит самую актуальную информацию о ресторанах и заведениях для любого повода.'
         }
       />
+      <style>
+        
+      </style>
     </Head>
     <Container>
       <HeaderTitle>рестораны челябинска</HeaderTitle>

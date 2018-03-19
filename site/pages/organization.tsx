@@ -10,21 +10,34 @@ import * as React from 'react';
  */
 
 import Layout from '../components/layout';
+import {
+  Container,
+} from '../components/styled/common';
 
 /*!
  * Expo
  */
 
-const Organization = ({ categories, organizations, settings }) => (
+const Organization = ({ categories, organization, settings }) => (
   <Layout>
+    <Container>
+    <article>
+      <header>
+        <h1>{organization.name}</h1>
+      </header>
+
+      <section dangerouslySetInnerHTML={{ __html: organization.content }} />
+      <section>{organization.workTime}</section>
+      <section>{organization.services}</section>
+    </article>
+    </Container>
   </Layout>
 );
 
-Organization.getInitialProps = async (props) => {
-  console.info(props);
-  const [categoriesRes, organizationsRes, settingsRes] = await Promise.all([
+Organization.getInitialProps = async ({ query }) => {
+  const [categoriesRes, organizationRes, settingsRes] = await Promise.all([
     axios.get('http://localhost:8081/categories'),
-    axios.get('http://localhost:8081/organizations'),
+    axios.get(`http://localhost:8081/organizations/${query._id}`),
     axios.get('http://localhost:8081/settings'),
   ]);
 
@@ -37,7 +50,7 @@ Organization.getInitialProps = async (props) => {
   return {
     settings,
     categories: categoriesRes.data,
-    organizations: organizationsRes.data,
+    organization: organizationRes.data,
   };
 };
 

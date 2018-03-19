@@ -15,6 +15,7 @@ import {
 
   Thumb,
   ThumbTitle,
+  StyledLink,
   ThumbContainer,
 } from '../styled/organization';
 
@@ -22,16 +23,22 @@ import {
  * Expos
  */
 
-const Organization = ({ name, content }) => (
+const Organization = ({ _id, name, content, slug }) => (
   <Card>
-    <Link as={name.toLowerCase().replace(/\s/g, '-')} href={{ pathname: '/organization', query: { slug: name } }}>
-      <a>
+    <Link as={`/${slug}`} href={{ pathname: '/organization', query: { _id } }} passHref>
+      <StyledLink>
         <ThumbContainer>
           <Thumb src="/static/img/no-image.svg" alt={name} />
           <ThumbTitle>{name}</ThumbTitle>
         </ThumbContainer>
-        <CardContent dangerouslySetInnerHTML={{ __html: `${content.slice(0, 120)}...` }} />
-      </a>
+        <CardContent
+          dangerouslySetInnerHTML={{
+            __html: !!content.length
+            ? `${content.slice(0, 120)}...`
+            : '',
+          }} 
+        />
+      </StyledLink>
     </Link>
   </Card>
 );
