@@ -36,9 +36,9 @@ const Organization = ({ categories, organization, settings }) => (
 
 Organization.getInitialProps = async ({ query }) => {
   const [categoriesRes, organizationRes, settingsRes] = await Promise.all([
-    axios.get('http://localhost:8081/categories'),
-    axios.get(`http://localhost:8081/organizations/${query._id}`),
-    axios.get('http://localhost:8081/settings'),
+    axios.get('http://api.restory74.ru/categories'),
+    axios.get(`http://api.restory74.ru/organizations/${query._id}`),
+    axios.get('http://api.restory74.ru/settings'),
   ]);
 
   const settings = {};
