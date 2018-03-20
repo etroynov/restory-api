@@ -1,19 +1,22 @@
-const { router, get } = require('microrouter');
-const { parse } = require('url');
-const next = require('next');
+const polka = require('polka')
+const next = require('next')
 
-const dev = process.env.NODE_ENV !== 'production';
+const port = parseInt(process.env.PORT, 10) || 3000
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-const app = next({ dev });
-const handle = app.getRequestHandler();
+app.prepare().then(() => {
+  const server = polka()
 
-async function setup (handler) {
-  await app.prepare();
-  return handler;
-}
+  server.get('/organization/:slug', (req, res) => {
+    const { slug } = req.params;
+    app.render(req, res, '/organization', { slug })
+  })
 
-module.exports = setup(router(
-  get('/pages', (req, res) => app.render(req, res, '/pages', req.params)),
+  server.get('*', (req, res) => handle(req, res))
 
-  get('*', (req, res) => handle(req, res))
-));
+  server
+    .listen(port)
+    .then(() => console.log(`> Ready on http://localhost:${port}`))
+})

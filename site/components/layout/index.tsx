@@ -1,10 +1,4 @@
 /*!
- * Vendor
- */
-
-import * as React from 'react';
-
-/*!
  * Components
  */
 
@@ -22,7 +16,7 @@ import { Page } from '../styled/common';
  */
 
 
-const Site = ({ title, description, settings, children }: ILayout) => (
+const Layout = ({ title, description, settings, children }: ILayout) => (
   <Page>
     <Header title={title} description={description} settings={settings} />
     <div>
@@ -32,4 +26,4 @@ const Site = ({ title, description, settings, children }: ILayout) => (
   </Page>
 );
 
-export default Site;
+export default Layout;

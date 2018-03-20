@@ -2,7 +2,6 @@
  * Vendor
  */
 
-import * as React from 'react';
 import Link from 'next/link';
 
 /*!
@@ -23,9 +22,9 @@ import {
  * Expos
  */
 
-const Organization = ({ _id, name, content, slug }) => (
+const Organization = ({ name, content, slug }) => (
   <Card>
-    <Link as={`/${slug}`} href={{ pathname: '/organization', query: { _id } }} passHref>
+    <Link as={`/organization/${slug}`} href={{ pathname: '/organization', query: { slug } }} passHref>
       <StyledLink>
         <ThumbContainer>
           <Thumb src="/static/img/no-image.svg" alt={name} />

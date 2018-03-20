@@ -3,7 +3,6 @@
  */
 
 import axios from 'axios';
-import * as React from 'react';
 
 /*!
  * Components
@@ -34,11 +33,11 @@ const Organization = ({ categories, organization, settings }) => (
   </Layout>
 );
 
-Organization.getInitialProps = async ({ query }) => {
+Organization.getInitialProps = async ({ query: { slug } }) => {
   const [categoriesRes, organizationRes, settingsRes] = await Promise.all([
-    axios.get('http://api.restory74.ru/categories'),
-    axios.get(`http://api.restory74.ru/organizations/${query._id}`),
-    axios.get('http://api.restory74.ru/settings'),
+    axios.get('http://localhost:8081/categories'),
+    axios.get(`http://localhost:8081/organizations/${slug}`),
+    axios.get('http://localhost:8081/settings'),
   ]);
 
   const settings = {};

@@ -29,8 +29,16 @@ exports.index = async (req, res) => {
 
 exports.show = async (req, res) => {
   try {
-    const organization = await Organization.findOne({ _id: req.params.id });
+    const { id } = req.params;
+    let organization = null;
 
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      organization = await Organization.findOne({ _id: id });
+    } else {
+      organization = await Organization.findOne({ slug: decodeURI(id) });
+    }
+
+    console.info(encodeURIComponent(id));
     return send(res, 200, organization);
   } catch(e) {
     return send(res, 500, e);

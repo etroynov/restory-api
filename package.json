@@ -39,6 +39,7 @@
     "next": "^5.0.1-canary.16",
     "nodemailer": "^4.6.2",
     "payture-official": "0.0.5",
+    "polka": "^0.3.4",
     "react": "^16.2.0",
     "react-ckeditor-component": "^1.0.7",
     "react-dom": "^16.2.0",
