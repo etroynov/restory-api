@@ -13,13 +13,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 
 /*!
- * Styles
- */
-
-import './assets/css/antd.min.css';
-import './assets/css/draftjs.min.css';
-
-/*!
  * Root Component
  */
 

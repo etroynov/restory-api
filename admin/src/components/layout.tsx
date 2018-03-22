@@ -23,12 +23,6 @@ const { Header, Content, Footer, Sider } = Layout;
 declare const require: any;
 
 /*!
- * Actions
- */
-
-// import './style';
-
-/*!
  * Expo
  */
 
@@ -38,20 +32,8 @@ const Dashboard = ({ menu, collapsed, handleCollapse, handleMenuSelectItem, chil
       collapsible={true}
       collapsed={collapsed}
       onCollapse={handleCollapse}
-      className="sidebar"
+      style={{ background: '#fff' }}
     >
-      <div className="profile">
-        <figure className="profile__img-container">
-          <img
-            src={require('./../assets/img/whitecollar.svg')}
-            className="profile__img"
-          />
-          <figcaption className="profile__img-caption">
-            Администратор
-            <hr className="profile__divider" />
-          </figcaption>
-        </figure>
-      </div>
       <Menu selectedKeys={menu.selected} mode="inline" onClick={handleMenuSelectItem}>
         {menu.data.map(({ _id, title, icon, href }) => (
           <Menu.Item key={_id} on>
@@ -72,7 +54,7 @@ const Dashboard = ({ menu, collapsed, handleCollapse, handleMenuSelectItem, chil
         <div className="content">{children}</div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        УЦ "Автор" ©2017 разработанно <a href="http://troinof.ru/portfolio/author">troinof.ru</a>
+        ооо "RTK - Consulting" ©2017 разработанно <a href="http://troinof.ru/portfolio/author">troinof.ru</a>
       </Footer>
     </Layout>
   </Layout>

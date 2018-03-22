@@ -19,7 +19,7 @@ const Organization = mongoose.model('Organization');
 
 exports.index = async (req, res) => {
   try {
-    const organizations = await Organization.find().limit(20);
+    const organizations = await Organization.find().limit(80);
 
     return send(res, 200, organizations);
   } catch(e) {

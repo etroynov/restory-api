@@ -2,8 +2,7 @@
   "name": "ucavtor-admin",
   "version": "",
   "scripts": {
-    "start-dev-site": "../node_modules/next/dist/bin/next-dev -p 4000",
-    "start": "../node_modules/next/dist/bin/next-start -p 8083",
-    "build": "../node_modules/next/dist/bin/next-build"
+    "start-dev-admin": "../node_modules/parcel-bundler/bin/cli.js -p 2100 ./src/index.html --no-cache",
+    "build": "../node_modules/parcel-bundler/bin/cli.js build ./src/index.html --no-cache --public-url ./"
   }
 }
