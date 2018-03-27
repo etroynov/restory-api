@@ -1,5 +1,5 @@
 {
-  "name": "ucavtor-admin",
+  "name": "@resto/admin",
   "version": "",
   "scripts": {
     "start-dev-admin": "../node_modules/parcel-bundler/bin/cli.js -p 2100 ./src/index.html --no-cache",

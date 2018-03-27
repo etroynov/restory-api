@@ -1,6 +1,6 @@
 {
-  "name": "ucavtor-dashboard",
-  "version": "",
+  "name": "@resto/dashboard",
+  "version": "0.0.1",
   "scripts": {
     "start-dev-dashboard": "../node_modules/parcel-bundler/bin/cli.js -p 2000 ./src/index.html --no-cache",
     "build": "../node_modules/parcel-bundler/bin/cli.js build ./src/index.html --no-cache --public-url ./"
