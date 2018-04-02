@@ -12,7 +12,7 @@ import { Form, Icon, Input, Button, Checkbox, Select } from 'antd';
  */
 
 import { success } from './../../utils/modals';
-import { updatePage } from '../../actions/pagesActions';
+import { updateOrganization } from '../../actions/organizationsActions';
 
 /*!
  * Components
@@ -26,7 +26,7 @@ const { TextArea } = Input;
  * Expo
  */
 
-class PageEditForm extends React.Component<any, {
+class OrganizationEditForm extends React.Component<any, {
   title: string;
   description: string;
   name: string;
@@ -44,13 +44,11 @@ class PageEditForm extends React.Component<any, {
   };
 
   private componentDidMount() {
-    const { pages, match: { params } } = this.props;
+    const { organizations, match: { params } } = this.props;
 
-    const filteredPage = pages.data.filter(({ _id }) => _id === params.id);
+    const filteredOrganization = organizations.data.filter(({ _id }) => _id === params.id);
 
-    return this.setState({
-      ...filteredPage[0],
-    });
+    return this.setState({ ...filteredOrganization[0] });
   }
 
   private handleSubmit = (e) => {
@@ -58,22 +56,17 @@ class PageEditForm extends React.Component<any, {
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.updatePage({ ...this.state, ...values }).then(() => success());
+        this
+          .props
+          .updateOrganization({ ...this.state, ...values })
+          .then(() => success());
       }
     });
   }
 
-  private updateContent = (content) => {
-    this.setState({ content });
-  }
-
-  private handleChangeContent = (e) => {
-    const content = e.editor.getData();
-
-    this.setState({ content });
-  }
-
+  private updateContent = content => this.setState({ content });
   private handelChangeStatus = status => this.setState({ status });
+  private handleChangeContent = e => this.setState({ content: e.editor.getData() });
 
   public render() {
     const { getFieldDecorator } = this.props.form;
@@ -91,7 +84,7 @@ class PageEditForm extends React.Component<any, {
         <FormItem>
           {getFieldDecorator('name', {
             rules: [
-              { required: true, message: 'Укажите название!' }
+              { required: true, message: 'Укажите название!' },
             ],
             initialValue: name,
           })(<Input placeholder="название страницы" />)}
@@ -158,11 +151,11 @@ class PageEditForm extends React.Component<any, {
   }
 }
 
-const WrappedPageEditForm = Form.create()(PageEditForm as any);
+const WrappedOrganizationEditForm = Form.create()(OrganizationEditForm as any);
 
-const mapStateToProps = ({ pages }) => ({ pages });
+const mapStateToProps = ({ organizations }) => ({ organizations });
 
 export default connect(
   mapStateToProps,
-  { updatePage },
-)(WrappedPageEditForm as any);
+  { updateOrganization },
+)(WrappedOrganizationEditForm as any);

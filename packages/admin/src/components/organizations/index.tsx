@@ -30,11 +30,7 @@ const columns = [
     key: 'createdAt',
     render: (text, record) => moment(text).locale('ru').format('L'),
   }, {
-    title: 'Кол-во сотрудников',
-    dataIndex: 'employersCount',
-    key: 'employersCount',
-  },  {
-    title: 'Подтверждена',
+    title: 'Показывать',
     dataIndex: 'status',
     key: 'status',
     render(text) {
@@ -44,8 +40,8 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <div style={{ float: 'right' }}>
-        <Link to={`/organizations/show/${record._id}`}>
-          <Button type="primary" icon="eye" style={{ marginLeft: 10 }} />
+        <Link to={`/organizations/edit/${record._id}`}>
+          <Button type="primary" icon="edit" style={{ marginLeft: 10 }} />
         </Link>
       </div>
     ),
@@ -57,7 +53,7 @@ const columns = [
  */
 
 const OrganizationsIndex = ({ loading, data }) => (
-  <Table 
+  <Table
     columns={columns}
     rowKey={(record: any) => record._id}
     dataSource={data}

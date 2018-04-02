@@ -38,7 +38,6 @@ exports.show = async (req, res) => {
       organization = await Organization.findOne({ slug: decodeURI(id) });
     }
 
-    console.info(encodeURIComponent(id));
     return send(res, 200, organization);
   } catch(e) {
     return send(res, 500, e);

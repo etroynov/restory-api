@@ -29,7 +29,7 @@ export const fetchOrganizations = () => (dispatch) => {
   dispatch(requestOrganizations());
 
   return axios.get(
-    'http://api.ucavtor.ru/organizations',
+    'http://localhost:8081/organizations',
   ).then(
     ({ data }) => dispatch(receiveOrganizations(data)),
     err => error(),
@@ -47,7 +47,7 @@ export const createOrganization = data => (dispatch) => {
   dispatch(requestCreateOrganization());
 
   return axios.post(
-    'http://api.ucavtor.ru/organizations/store',
+    'http://localhost:8081/organizations/store',
     data,
   ).then(
     ({ data }) => dispatch(receiveCreateOrganization(data)),
@@ -66,7 +66,7 @@ export const updateOrganization = data => (dispatch) => {
   dispatch(requestUpdateOrganization());
 
   return axios.post(
-    'http://api.ucavtor.ru/organizations/update',
+    'http://localhost:8081/organizations/update',
     data,
   ).then(
     ({ data }) => dispatch(receiveUpdateOrganization(data)),
@@ -85,7 +85,7 @@ export const deleteOrganization = data => (dispatch) => {
   dispatch(requestDeleteOrganization());
 
   return axios.post(
-    'http://api.ucavtor.ru/organizations/delete',
+    'http://localhost:8081/organizations/delete',
     data,
   ).then(
     ({ data }) => dispatch(receiveDeleteOrganization(data)),

@@ -1,8 +1,41 @@
 {
   "name": "@resto/admin",
-  "version": "",
+  "version": "0.0.1",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-helmet": "^5.0.4",
+    "@types/react-redux": "^5.0.15",
+    "@types/react-router-dom": "^4.2.4",
+    "@types/react-router-redux": "^5.0.12",
+    "@types/recompose": "^0.24.6",
+    "parcel-bundler": "^1.7.0",
+    "redux-devtools-extension": "^2.13.2",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.6.0",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "antd": "^3.3.0",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.21.0",
+    "react": "^16.2.0",
+    "react-ckeditor-component": "^1.0.7",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-act": "^1.7.2",
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^3.2.1"
+  },
   "scripts": {
-    "start-dev-admin": "../node_modules/parcel-bundler/bin/cli.js -p 2100 ./src/index.html --no-cache",
-    "build": "../node_modules/parcel-bundler/bin/cli.js build ./src/index.html --no-cache --public-url ./"
+    "start-dev-admin": "parcel -p 2100 ./src/index.html --no-cache",
+    "build": "parcel build ./src/index.html --no-cache --public-url ./"
   }
 }

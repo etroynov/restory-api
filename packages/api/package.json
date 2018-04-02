@@ -2,8 +2,7 @@
   "name": "@resto/api",
   "version": "0.0.1",
   "scripts": {
-    "start-dev-api": "../node_modules/micro-dev/bin/micro-dev.js -p 8081 src",
-    "build": "../node_modules/webpack/bin/webpack.js --progress --mode production"
+    "start-dev-api": "../../node_modules/micro-dev/bin/micro-dev.js -p 8081 src"
   },
   "devDependencies": {
     "micro-dev": "^2.2.0"

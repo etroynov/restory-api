@@ -24,9 +24,9 @@ const Home = ({ categories, organizations, settings }) => (
 
 Home.getInitialProps = async () => {
   const [categoriesRes, organizationsRes, settingsRes] = await Promise.all([
-    axios.get('http://api.restory74.ru/categories'),
-    axios.get('http://api.restory74.ru/organizations'),
-    axios.get('http://api.restory74.ru/settings'),
+    axios.get('http://localhost:8081/categories'),
+    axios.get('http://localhost:8081/organizations'),
+    axios.get('http://localhost:8081/settings'),
   ]);
 
   const settings = {};
