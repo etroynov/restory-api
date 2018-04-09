@@ -5,7 +5,7 @@
 import * as React from 'react';
 import CKEditor from 'react-ckeditor-component';
 import { connect } from 'react-redux';
-import { Form, Icon, Input, Button, Checkbox, Select } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Select, Tabs } from 'antd';
 
 /*!
  * Actions
@@ -20,6 +20,7 @@ import { updateOrganization } from '../../actions/organizationsActions';
 
 const Option = Select.Option;
 const FormItem = Form.Item;
+const TabPane = Tabs.TabPane;
 const { TextArea } = Input;
 
 /*!
@@ -81,71 +82,81 @@ class OrganizationEditForm extends React.Component<any, {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem>
-          {getFieldDecorator('name', {
-            rules: [
-              { required: true, message: 'Укажите название!' },
-            ],
-            initialValue: name,
-          })(<Input placeholder="название страницы" />)}
-        </FormItem>
-        <FormItem>
-          <CKEditor
-            config={{
-              language: 'ru',
-              allowedContent: true,
-            }}
-            content={content}
-            events={{
-              change: this.handleChangeContent,
-            }}
-          />
-        </FormItem>
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="ОБЩЕЕ" key="1">
+            <FormItem>
+              {getFieldDecorator('name', {
+                rules: [
+                  { required: true, message: 'Укажите название!' },
+                ],
+                initialValue: name,
+              })(<Input placeholder="название страницы" />)}
+            </FormItem>
+            <FormItem>
+              <CKEditor
+                config={{
+                  language: 'ru',
+                  allowedContent: true,
+                }}
+                content={content}
+                events={{
+                  change: this.handleChangeContent,
+                }}
+              />
+            </FormItem>
 
-        <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
+            <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
 
-        <h3>СЕО</h3>
-        <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
+            <h3>СЕО</h3>
+            <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
 
-        <FormItem>
-          {getFieldDecorator('title', {
-            rules: [{ required: true, message: 'Укажите заголовок!' }],
-            initialValue: title,
-          })(<Input placeholder="заголовок страницы ( тег title )" />)}
-        </FormItem>
+            <FormItem>
+              {getFieldDecorator('title', {
+                rules: [{ required: true, message: 'Укажите заголовок!' }],
+                initialValue: title,
+              })(<Input placeholder="заголовок страницы ( тег title )" />)}
+            </FormItem>
 
-        <FormItem>
-          {getFieldDecorator('description', {
-            rules: [{ required: true, message: 'Укажите описание!' }],
-            initialValue: description,
-          })(
-            <TextArea
-              rows={4}
-              placeholder="краткое описание ( тег meta='description' )"
-            />,
-          )}
-        </FormItem>
+            <FormItem>
+              {getFieldDecorator('description', {
+                rules: [{ required: true, message: 'Укажите описание!' }],
+                initialValue: description,
+              })(
+                <TextArea
+                  rows={4}
+                  placeholder="краткое описание ( тег meta='description' )"
+                />,
+              )}
+            </FormItem>
 
-        <FormItem>
-          {getFieldDecorator('slug', {
-            rules: [{ required: true, message: 'Укажите ЧПУ!' }],
-            initialValue: slug,
-          })(
-            <Input placeholder="адрес страницы, например: testpage" />,
-          )}
-        </FormItem>
+            <FormItem>
+              {getFieldDecorator('slug', {
+                rules: [{ required: true, message: 'Укажите ЧПУ!' }],
+                initialValue: slug,
+              })(
+                <Input placeholder="адрес страницы, например: testpage" />,
+              )}
+            </FormItem>
 
-        <FormItem>
-          <Select defaultValue={String(status)} onChange={this.handelChangeStatus}>
-            <Option value="0">Черновик</Option>
-            <Option value="1">Опубликованно</Option>
-          </Select>
-        </FormItem>
+            <FormItem>
+              <Select defaultValue={String(status)} onChange={this.handelChangeStatus}>
+                <Option value="0">Черновик</Option>
+                <Option value="1">Опубликованно</Option>
+              </Select>
+            </FormItem>
 
-        <FormItem>
-          <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
-          <Button type="primary" htmlType="submit" style={{ float: 'right' }}>сохранить</Button>
-        </FormItem>
+            <FormItem>
+              <hr style={{ border: 'none', borderBottom: '1px solid #eeeeee' }} />
+              <Button type="primary" htmlType="submit" style={{ float: 'right' }}>сохранить</Button>
+            </FormItem>
+          </TabPane>
+          <TabPane tab="СВЯЗИ" key="3">
+          </TabPane>
+          <TabPane tab="ИЗОБРАЖЕНИЯ" key="2">
+          </TabPane>
+          <TabPane tab="АКЦИИ" key="4">
+          </TabPane>
+        </Tabs>
       </Form>
     );
   }

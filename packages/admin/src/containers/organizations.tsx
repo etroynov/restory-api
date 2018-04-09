@@ -57,7 +57,6 @@ const Organizations = ({ location }) => {
       <section style={{ padding: 10, background: '#ffffff', border: '1px solid #eeeeee' }}>
         <Switch>
           <Route exact path="/organizations" component={Index} />
-          <Route path="/organizations/show/:id" component={Show} />
           <Route path="/organizations/edit/:id" component={Edit} />
         </Switch>
       </section>
