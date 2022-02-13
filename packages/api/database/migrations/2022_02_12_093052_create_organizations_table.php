@@ -14,14 +14,13 @@ class CreateOrganizationsTable extends Migration
     public function up()
     {
         Schema::create('organizations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('seo_title');
-            $table->string('seo_description')->nullable();
-            $table->string('title')->nullable();
-            $table->string('content')->nullable();
-            $table->string('thumb')->nullable();
+            $table->string('seo_description');
+            $table->string('name');
+            $table->text('content');
+            $table->text('image');
             $table->string('slug');
-            $table->timestamps();
         });
     }
 

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Category_organizations extends Pivot
+class Post_tags extends Pivot
 {
     //
 }
